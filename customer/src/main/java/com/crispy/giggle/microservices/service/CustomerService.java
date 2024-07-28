@@ -15,4 +15,7 @@ public class CustomerService {
         var customer= customerRepository.save(customerMapper.toCustomer(customerRequest));
         return customer.getId();
     }
+
+    public void updateCustomer( CustomerRequest request) {
+    }
 }

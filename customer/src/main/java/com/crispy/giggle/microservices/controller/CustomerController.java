@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
@@ -19,5 +20,10 @@ public class CustomerController {
     @PostMapping
     public ResponseEntity<String> createCustomer(@Valid  @RequestBody CustomerRequest customerRequest){
         return ResponseEntity.ok(customerService.createCustomer(customerRequest));
+    }
+
+    public ResponseEntity<Void> updateCustomer(@Valid @RequestBody  CustomerRequest customerRequest){
+        customerService.updateCustomer(customerRequest);
+        return ResponseEntity.accepted().build();
     }
 }
